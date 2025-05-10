@@ -1,12 +1,23 @@
 package org.app.model;
 
+import jakarta.persistence.*;
+
 import java.math.BigDecimal;
 
+@Entity
+@Table(name = "polis")
 public class Polis {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    @Column(name = "polis_number", nullable = false)
     private String polisNumber;
+    @Column(name = "polis_holder", nullable = false)
     private String polisHolder;
+    @Column(name = "product", nullable = false)
     private String product;
+    @Column(name = "premium", nullable = false)
     private BigDecimal premium;
 
     public Polis(){}
@@ -16,6 +27,14 @@ public class Polis {
         this.polisHolder = polisHolder;
         this.product = product;
         this.premium = premium;
+    }
+
+    public Long getId(){
+        return id;
+    }
+
+    public void setId(Long id){
+        this.id = id;
     }
 
     public String getPolisNumber(){

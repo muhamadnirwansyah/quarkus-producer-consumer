@@ -14,6 +14,7 @@ public class PolisProducer {
 
     public void sendPolis(Polis polis){
         /** expected format polis|polis_holder **/
+        System.out.println("###### Sending message : "+polis.toString());
         String payload = polis.getPolisNumber()+"|"+polis.getPolisHolder()+"|"+polis.getProduct()+"|"+polis.getPremium();
         emitter.send(payload);
     }
